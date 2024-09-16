@@ -1,112 +1,145 @@
-// AOS Animation Initialization
+// AOS Initialization
 AOS.init({
   duration: 1000,
   once: true,
-  mirror: false,
 });
 
-// Typed.js Initialization for the typewriter effect
-const typed = new Typed('#typed-name', {
-  strings: ["Aman Sharma", "Engineer", "Problem Solver"],
-  typeSpeed: 100,
-  backSpeed: 50,
-  loop: true
-});
-
-// Initialize Splitting.js
-Splitting();
-
-// Custom cursor
+// Custom Cursor Implementation
 const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
-
+const cursorFollower = document.querySelector('.cursor-follower');
 document.addEventListener('mousemove', (e) => {
-  gsap.to(cursor, { duration: 0.23, left: e.pageX - 10, top: e.pageY - 10 });
-  gsap.to(follower, { duration: 0.3, left: e.pageX - 4, top: e.pageY - 4 });
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+  cursorFollower.style.left = `${e.clientX}px`;
+  cursorFollower.style.top = `${e.clientY}px`;
 });
 
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
-
-// Animate skill progress bars
-gsap.utils.toArray('.skill-progress').forEach(progress => {
-  gsap.to(progress, {
-    width: progress.getAttribute('data-progress') + '%',
-    scrollTrigger: {
-      trigger: progress,
-      start: 'top 80%',
-      end: 'bottom 20%',
-      scrub: 1,
-    }
-  });
+// Navbar Background Change on Scroll
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.pageYOffset > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
 });
 
-// Animate split text
-gsap.utils.toArray('[data-splitting]').forEach(text => {
-  let chars = text.querySelectorAll('.char');
-  gsap.from(chars, {
-    scrollTrigger: {
-      trigger: text,
-      start: 'top 80%',
-      end: 'bottom 20%',
-    },
-    opacity: 0,
-    y: 50,
-    stagger: 0.05,
-    duration: 0.5,
-    ease: 'back.out(1.7)',
-  });
+// Burger Menu Toggle
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('nav-active');
+  burger.classList.toggle('toggle');
 });
 
-// 3D tilt effect on project items
-VanillaTilt.init(document.querySelectorAll('.project-item'), {
-  max: 25,
-  speed: 400,
-  glare: true,
-  'max-glare': 0.5,
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth Scrolling for Anchor Links
+document.querySelectorAll('a[data-scroll]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
+    navLinks.classList.remove('nav-active');
+    burger.classList.remove('toggle');
     document.querySelector(this.getAttribute('href')).scrollIntoView({
       behavior: 'smooth'
     });
   });
 });
 
-// Mobile menu toggle
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
-
-burger.addEventListener('click', () => {
-  nav.classList.toggle('nav-active');
-  
-  navLinks.forEach((link, index) => {
-    if (link.style.animation) {
-      link.style.animation = '';
-    } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-    }
+// GSAP Animations for Skills Progress Bars
+gsap.utils.toArray('.progress').forEach(progress => {
+  gsap.fromTo(progress, {
+    width: '0%',
+  }, {
+    width: progress.getAttribute('data-percentage') + '%',
+    scrollTrigger: {
+      trigger: progress,
+      start: 'top 80%',
+    },
+    duration: 2,
+    ease: 'power2.out',
   });
-
-  burger.classList.toggle('toggle');
 });
 
-// Parallax effect for header background
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  const scrollPosition = window.pageYOffset;
-  header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+// Typed.js animation for name
+new Typed('#typed', {
+  strings: ['Aman Sharma', 'Engineer', 'Developer', 'Innovator'],
+  typeSpeed: 50,
+  backSpeed: 50,
+  loop: true
 });
 
-// Form submission handling
+// Particles.js Initialization
+particlesJS('particles-js', {
+  "particles": {
+    "number": {
+      "value": 80
+    },
+    "color": {
+      "value": "#00FFFF"
+    },
+    "shape": {
+      "type": "circle"
+    },
+    "opacity": {
+      "value": 0.5
+    },
+    "size": {
+      "value": 3
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#00FFFF",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 3
+    }
+  }
+});
+
+// Contact Form Submission Handling
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  // Add your form submission logic here (e.g., AJAX request to server)
-  alert('Thank you for your message! I will get back to you soon.');
+  // Implement form submission logic (e.g., using Fetch API or AJAX)
+  alert('Thank you for your message!');
   form.reset();
+});
+
+// Parallax effect
+window.addEventListener('scroll', () => {
+  const parallax = document.querySelectorAll('.parallax');
+  let scrollPosition = window.pageYOffset;
+
+  parallax.forEach(element => {
+    let speed = element.dataset.speed;
+    element.style.transform = `translateY(${scrollPosition * speed}px)`;
+  });
+});
+
+// Tilt effect on project cards
+VanillaTilt.init(document.querySelectorAll(".project-item"), {
+  max: 25,
+  speed: 400,
+  glare: true,
+  "max-glare": 0.5,
+});
+
+// Scroll to top button
+const scrollToTopButton = document.getElementById("scrollToTop");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopButton.style.display = "block";
+  } else {
+    scrollToTopButton.style.display = "none";
+  }
+}
+
+scrollToTopButton.addEventListener("click", function(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
 });
