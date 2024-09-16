@@ -5,39 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aman Sharma | Portfolio</title>
-  <link rel="stylesheet" href="test.css">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://unpkg.com/splitting/dist/splitting.css" rel="stylesheet" />
-  <link href="https://unpkg.com/splitting/dist/splitting-cells.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="test.css">
 </head>
 
 <body>
+  <!-- Cursor Elements -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
-  <div class="scene">
-    <div class="cube">
-      <div class="cube__face cube__face--front"></div>
-      <div class="cube__face cube__face--back"></div>
-      <div class="cube__face cube__face--right"></div>
-      <div class="cube__face cube__face--left"></div>
-      <div class="cube__face cube__face--top"></div>
-      <div class="cube__face cube__face--bottom"></div>
-    </div>
-  </div>
-
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
-      <div class="logo">AS</div>
+      <div class="logo">Aman Sharma</div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#home" data-scroll>Home</a></li>
+        <li><a href="#about" data-scroll>About</a></li>
+        <li><a href="#experience" data-scroll>Experience</a></li>
+        <li><a href="#projects" data-scroll>Projects</a></li>
+        <li><a href="#skills" data-scroll>Skills</a></li>
+        <li><a href="#contact" data-scroll>Contact</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -47,135 +40,178 @@
     </div>
   </nav>
 
+  <!-- Header Section -->
   <header id="home">
-    <div class="container">
-      <h1 id="typed-name"></h1>
-      <p class="title">Engineer-1</p>
-      <div class="contact-info">
-        <a href="mailto:amanworkspace2700@gmail.com"><i class="fas fa-envelope"></i> amanworkspace2700@gmail.com</a>
-        <a href="tel:+919801897941"><i class="fas fa-phone"></i> +91 9801897941</a>
-      </div>
-      <a href="#about" class="scroll-down">Explore <i class="fas fa-chevron-down"></i></a>
+    <div id="particles-js"></div>
+    <div class="header-content">
+      <h1 class="animated-text"><span id="typed"></span></h1>
+      <p class="tagline">Engineer • Developer • Innovator</p>
+      <a href="#about" class="btn">Discover More</a>
     </div>
   </header>
 
-  <section id="about" data-aos="fade-up">
+  <!-- About Section -->
+  <section id="about">
     <div class="container">
-      <h2 data-splitting>About Me</h2>
-      <div class="about-content">
+      <div class="section-title" data-aos="fade-up">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content" data-aos="fade-up" data-aos-delay="100">
         <div class="about-text">
-          <p>Hi, I'm Aman Sharma, currently working as Engineer-1 at AAROH LABS PRIVATE LTD. I have a B.Tech in Computer Science from Technocrats Institute of Technology.</p>
+          <p>
+            Hello! I'm Aman Sharma, an Engineer-1 at AAROH LABS PRIVATE LTD. With a B.Tech in Computer Science, I specialize in software development, problem-solving, and innovative engineering solutions.
+          </p>
           <ul>
             <li><strong>B.Tech in Computer Science</strong> - CGPA: 9.22</li>
             <li><strong>Class 12th</strong> - ST Xavier's Jr/Sr School, Muzaffarpur</li>
             <li><strong>Class 10th</strong> - Army Public School, Kolkata</li>
           </ul>
+          <a href="#" class="btn">Download CV</a>
         </div>
-        <div class="about-image">
-          <div class="glitch-wrapper">
-            <div class="glitch" style="background-image: url('your-image.jpg');"></div>
-          </div>
+        <div class="about-image parallax" data-speed="0.1">
+          <img src="your-image.jpg" alt="Aman Sharma" class="profile-image" />
         </div>
       </div>
     </div>
   </section>
 
-  <section id="experience" data-aos="fade-up">
+  <!-- Experience Section -->
+  <section id="experience">
     <div class="container">
-      <h2 data-splitting>Experience</h2>
-      <div class="timeline">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline" data-aos="fade-up" data-aos-delay="100">
+        <!-- Timeline Item -->
         <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
           <div class="timeline-content">
             <h3>AAROH LABS PRIVATE LTD.</h3>
-            <p class="timeline-date">Engineer-1 | Pune, India | Feb 2023 - Present</p>
-            <ul>
-              <li>Engineered a Storage Processor using Odroid M1 SBCs and TCP/IP connectivity for NVMe targets.</li>
-              <li>Established virtual machines with QEMU, KVM, and Virt-Manager for seamless data exchange.</li>
-              <li>Optimized data transmission with Linux kernel and networking concepts.</li>
-            </ul>
+            <span>Engineer-1 | Pune, India | Feb 2023 - Present</span>
+            <p>
+              - Engineered a Storage Processor using Odroid M1 SBCs and TCP/IP connectivity for NVMe targets.<br>
+              - Established virtual machines with QEMU, KVM, and Virt-Manager for seamless data exchange.<br>
+              - Optimized data transmission with Linux kernel and networking concepts.
+            </p>
+          </div>
+        </div>
+        <!-- Add more timeline items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+      </div>
+      <div class="projects-wrapper" data-aos="fade-up" data-aos-delay="100">
+        <!-- Project Item -->
+        <div class="project-item">
+          <div class="project-image" style="background-image: url('project1.jpg');">
+            <div class="project-overlay">
+              <h3>Unique Student Identity System</h3>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project Item -->
+        <div class="project-item">
+          <div class="project-image" style="background-image: url('project2.jpg');">
+            <div class="project-overlay">
+              <h3>Friday Voice Assistant</h3>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more project items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-content" data-aos="fade-up" data-aos-delay="100">
+        <!-- Skill Item -->
+        <div class="skill-item">
+          <div class="skill-info">
+            <h3>Python</h3>
+            <span>95%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" data-percentage="95"></div>
+          </div>
+        </div>
+        <!-- Skill Item -->
+        <div class="skill-item">
+          <div class="skill-info">
+            <h3>NVMe</h3>
+            <span>90%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" data-percentage="90"></div>
+          </div>
+        </div>
+        <!-- Add more skill items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+        <form id="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> amanworkspace2700@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +91 9801897941</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <!-- Add more social icons as needed -->
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" data-aos="fade-up">
-    <div class="container">
-      <h2 data-splitting>Projects</h2>
-      <div class="project-grid">
-        <div class="project-item" data-aos="flip-left">
-          <h3>Unique Student Identity and Student Profile System</h3>
-          <p>A Django-based system to track students using unique IDs, making processes like identification easier.</p>
-          <a href="#" class="btn">Learn More</a>
-        </div>
-        <div class="project-item" data-aos="flip-right">
-          <h3>Friday Voice Assistant</h3>
-          <p>A Python-based voice assistant to automate tasks and scrape web pages with libraries like Selenium, BeautifulSoup, and PyAudio.</p>
-          <a href="#" class="btn">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" data-aos="fade-up">
-    <div class="container">
-      <h2 data-splitting>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-item" data-skill="NVMe">
-          <div class="skill-progress" data-progress="90"></div>
-        </div>
-        <div class="skill-item" data-skill="TCP/IP">
-          <div class="skill-progress" data-progress="85"></div>
-        </div>
-        <div class="skill-item" data-skill="Python">
-          <div class="skill-progress" data-progress="95"></div>
-        </div>
-        <div class="skill-item" data-skill="C">
-          <div class="skill-progress" data-progress="80"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="achievements" data-aos="fade-up">
-    <div class="container">
-      <h2 data-splitting>Achievements</h2>
-      <div class="achievement-item" data-aos="zoom-in">
-        <i class="fas fa-trophy"></i>
-        <p>Participated in Hacktoberfest 2022, contributing 4 meaningful pull requests to open-source projects.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <div class="container">
-      <h2 data-splitting>Get in Touch</h2>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-      <p>&copy; 2023 Aman Sharma. All rights reserved.</p>
-    </div>
+    <p>&copy; 2023 Aman Sharma. All rights reserved.</p>
   </footer>
 
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" title="Go to top">↑</button>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script src="test.js"></script>
 </body>
 
