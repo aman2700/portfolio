@@ -5,15 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aman Sharma | Portfolio</title>
-  <link rel="stylesheet" href="test.css">
-  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/splitting/dist/splitting.css" rel="stylesheet" />
+  <link href="https://unpkg.com/splitting/dist/splitting-cells.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
-  <!-- Navigation -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <div class="scene">
+    <div class="cube">
+      <div class="cube__face cube__face--front"></div>
+      <div class="cube__face cube__face--back"></div>
+      <div class="cube__face cube__face--right"></div>
+      <div class="cube__face cube__face--left"></div>
+      <div class="cube__face cube__face--top"></div>
+      <div class="cube__face cube__face--bottom"></div>
+    </div>
+  </div>
+
   <nav class="navbar">
     <div class="container">
       <div class="logo">AS</div>
@@ -33,7 +47,6 @@
     </div>
   </nav>
 
-  <!-- Header Section -->
   <header id="home">
     <div class="container">
       <h1 id="typed-name"></h1>
@@ -46,10 +59,9 @@
     </div>
   </header>
 
-  <!-- About Section -->
   <section id="about" data-aos="fade-up">
     <div class="container">
-      <h2>About Me</h2>
+      <h2 data-splitting>About Me</h2>
       <div class="about-content">
         <div class="about-text">
           <p>Hi, I'm Aman Sharma, currently working as Engineer-1 at AAROH LABS PRIVATE LTD. I have a B.Tech in Computer Science from Technocrats Institute of Technology.</p>
@@ -60,16 +72,17 @@
           </ul>
         </div>
         <div class="about-image">
-          <img src="your-image.jpg" alt="Aman Sharma">
+          <div class="glitch-wrapper">
+            <div class="glitch" style="background-image: url('your-image.jpg');"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience" data-aos="fade-up">
     <div class="container">
-      <h2>Experience</h2>
+      <h2 data-splitting>Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-content">
@@ -86,10 +99,9 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" data-aos="fade-up">
     <div class="container">
-      <h2>Projects</h2>
+      <h2 data-splitting>Projects</h2>
       <div class="project-grid">
         <div class="project-item" data-aos="flip-left">
           <h3>Unique Student Identity and Student Profile System</h3>
@@ -105,44 +117,29 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
   <section id="skills" data-aos="fade-up">
     <div class="container">
-      <h2>Skills</h2>
+      <h2 data-splitting>Skills</h2>
       <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Languages</h3>
-          <ul>
-            <li>NVMe</li>
-            <li>TCP/IP</li>
-            <li>Python</li>
-            <li>C</li>
-          </ul>
+        <div class="skill-item" data-skill="NVMe">
+          <div class="skill-progress" data-progress="90"></div>
         </div>
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <ul>
-            <li>QEMU</li>
-            <li>Virt-Manager</li>
-            <li>VS Code</li>
-          </ul>
+        <div class="skill-item" data-skill="TCP/IP">
+          <div class="skill-progress" data-progress="85"></div>
         </div>
-        <div class="skill-category">
-          <h3>Coursework</h3>
-          <ul>
-            <li>IoT</li>
-            <li>OOPS</li>
-            <li>Computer Networks</li>
-          </ul>
+        <div class="skill-item" data-skill="Python">
+          <div class="skill-progress" data-progress="95"></div>
+        </div>
+        <div class="skill-item" data-skill="C">
+          <div class="skill-progress" data-progress="80"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Achievements Section -->
   <section id="achievements" data-aos="fade-up">
     <div class="container">
-      <h2>Achievements</h2>
+      <h2 data-splitting>Achievements</h2>
       <div class="achievement-item" data-aos="zoom-in">
         <i class="fas fa-trophy"></i>
         <p>Participated in Hacktoberfest 2022, contributing 4 meaningful pull requests to open-source projects.</p>
@@ -150,10 +147,9 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" data-aos="fade-up">
     <div class="container">
-      <h2>Get in Touch</h2>
+      <h2 data-splitting>Get in Touch</h2>
       <form id="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -163,7 +159,6 @@
     </div>
   </section>
 
-  <!-- Footer Section -->
   <footer>
     <div class="container">
       <div class="social-links">
@@ -175,10 +170,13 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="test.js"></script>
+  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
